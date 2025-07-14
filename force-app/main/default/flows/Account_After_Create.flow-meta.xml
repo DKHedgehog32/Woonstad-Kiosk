@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Get and assign uuid</description>
+        <name>Get_UUID</name>
+        <label>Get UUID</label>
+        <locationX>182</locationX>
+        <locationY>384</locationY>
+        <actionName>InvocableUUID</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordIds</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>InvocableUUID</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <description>Decides if this is a person account</description>
+        <name>Account_Type</name>
+        <label>Account Type</label>
+        <locationX>182</locationX>
+        <locationY>600</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Person_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.IsPersonAccount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Person_Account</targetReference>
+            </connector>
+            <label>Is Person Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Does this record have a UUID yet? Important, because some create flows generate UUID implicitely (e.g. REST inbound)</description>
+        <name>Has_UUID</name>
+        <label>Has UUID</label>
+        <locationX>380</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>No_UUID</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.UUID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_UUID</targetReference>
+            </connector>
+            <label>No UUID</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Should_be_sent_to_Okapi</name>
+        <label>Should be sent to Okapi</label>
+        <locationX>974</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>No, UUID not known</defaultConnectorLabel>
+        <rules>
+            <name>Yes_UUID_is_known</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.UUID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_To_Okapi</targetReference>
+            </connector>
+            <label>Yes, UUID is known</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Account - After Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - After Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Store account with the assigned UUID</description>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>182</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>Account_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>UUID__c</field>
+            <value>
+                <elementReference>Get_UUID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Also fills the UUID on the contact side of the person account</description>
+        <name>Update_Person_Account</name>
+        <label>Update Person Account</label>
+        <locationX>50</locationX>
+        <locationY>708</locationY>
+        <inputAssignments>
+            <field>Contact_UUID__c</field>
+            <value>
+                <elementReference>Get_UUID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.PersonContact</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>551</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Has_UUID</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Should_be_sent_to_Okapi</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <subflows>
+        <name>Send_To_Okapi</name>
+        <label>Send To Okapi</label>
+        <locationX>842</locationX>
+        <locationY>384</locationY>
+        <flowName>Account_Send_to_OKAPI_Subflow</flowName>
+        <inputAssignments>
+            <name>varT_AccountId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>Structure to hold account soort (ReferentieCodeModel)</description>
+        <name>accountSoort</name>
+        <apexClass>ReferentieCodeModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Structure to hold postadres (PersoonAdresModel)</description>
+        <name>postAdres</name>
+        <apexClass>PersoonAdresModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

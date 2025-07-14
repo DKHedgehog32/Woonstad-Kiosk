@@ -6,7 +6,6 @@
   <types><members>*</members><name>ApexComponent</name></types>
   <types><members>*</members><name>ApexPage</name></types>
   <types><members>*</members><name>ApexTrigger</name></types>
-  <types><members>*</members><name>Application</name></types>
   <types><members>*</members><name>AssignmentRules</name></types>
   <types><members>*</members><name>AuraDefinitionBundle</name></types>
   <types><members>*</members><name>AutoResponseRules</name></types>
@@ -16,7 +15,6 @@
   <types><members>*</members><name>CustomMetadata</name></types>
   <types><members>*</members><name>CustomObject</name></types>
   <types><members>*</members><name>CustomPermission</name></types>
-  <types><members>*</members><name>CustomSetting</name></types>
   <types><members>*</members><name>CustomTab</name></types>
   <types><members>*</members><name>DuplicateRule</name></types>
   <types><members>*</members><name>EmailTemplate</name></types>
@@ -31,7 +29,6 @@
   <types><members>*</members><name>LightningComponentBundle</name></types>
   <types><members>*</members><name>NamedCredential</name></types>
   <types><members>*</members><name>Network</name></types>
-  <types><members>*</members><name>ObjectPermissions</name></types>
   <types><members>*</members><name>PermissionSet</name></types>
   <types><members>*</members><name>Profile</name></types>
   <types><members>*</members><name>Queue</name></types>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <description>Used to assign the record ID to the Account record variable</description>
+        <name>Assign_Triggered_Account_Record_to_Variable</name>
+        <label>Assign Triggered Account Record to Variable</label>
+        <locationX>776</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>varR_Account.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Primary_Shipping_Address_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Updates the billing address fields to match the primary</description>
+        <name>Set_Dutch_General_Address_As_Billing_Address_Values</name>
+        <label>Set Dutch General Address As Billing Address Values</label>
+        <locationX>314</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_DutchBillingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the billing address fields to match the primary</description>
+        <name>Set_Dutch_PO_Box_Or_Freepost_Billing_Address_Values</name>
+        <label>Set Dutch PO Box Or Freepost Billing Address Values</label>
+        <locationX>50</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_DutchPOBoxFreepostBillingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the shipping address fields to match the primary</description>
+        <name>Set_Dutch_Shipping_Address_Values</name>
+        <label>Set Dutch Shipping Address Values</label>
+        <locationX>446</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_DutchShippingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Primary_Billing_Address_Changed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Updates the billing address fields to match the primary</description>
+        <name>Set_Foreign_General_Address_As_Billing_Address_Values</name>
+        <label>Set Foreign General Address As Billing Address Values</label>
+        <locationX>842</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_ForeignBillingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the billing address fields to match the primary</description>
+        <name>Set_Foreign_PO_Box_Or_Freepost_Billing_Address_Values</name>
+        <label>Set Foreign PO Box Or Freepost Billing Address Values</label>
+        <locationX>578</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Billing_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.BillingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_DutchPOBoxFreepostBillingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the shipping address fields to match the primary</description>
+        <name>Set_Foreign_Shipping_Address_Values</name>
+        <label>Set Foreign Shipping Address Values</label>
+        <locationX>710</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.City__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingCountryCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.Country__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Primary_Shipping_Address__r.Postal_Code__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ShippingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_ForeignShippingAddressStreetCombination</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Primary_Billing_Address_Changed</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Is the Billing Address Dutch or foreign</description>
+        <name>Dutch_Or_Foreign_Billing_Address</name>
+        <label>Dutch Or Foreign Billing Address</label>
+        <locationX>446</locationX>
+        <locationY>995</locationY>
+        <defaultConnector>
+            <targetReference>Foreign_PO_Box_Freepost_Number_Or_General_Address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Foreign Billing Address</defaultConnectorLabel>
+        <rules>
+            <name>Dutch_Billing_Address</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__r.Country__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NL</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>PO_Box_Freepost_Number_Or_General_Address</targetReference>
+            </connector>
+            <label>Dutch Billing Address</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the Shipping Address Dutch or foreign</description>
+        <name>Dutch_Or_Foreign_Shipping_Address</name>
+        <label>Dutch Or Foreign Shipping Address</label>
+        <locationX>578</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Set_Foreign_Shipping_Address_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Foreign Shipping Address</defaultConnectorLabel>
+        <rules>
+            <name>Dutch_Shipping_Address</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Shipping_Address__r.Country__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NL</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Dutch_Shipping_Address_Values</targetReference>
+            </connector>
+            <label>Dutch Shipping Address</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the Billing Address a PO Box or Freepost Number or a general address?</description>
+        <name>Foreign_PO_Box_Freepost_Number_Or_General_Address</name>
+        <label>Foreign PO Box, Freepost Number Or General Address</label>
+        <locationX>710</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Set_Foreign_General_Address_As_Billing_Address_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>General address</defaultConnectorLabel>
+        <rules>
+            <name>Foreign_PO_Box_or_Freepost_Number</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__r.PO_Box_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__r.Freepost_number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Foreign_PO_Box_Or_Freepost_Billing_Address_Values</targetReference>
+            </connector>
+            <label>Foreign PO Box or Freepost Number</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the Billing Address a PO Box or Freepost Number or a general address?</description>
+        <name>PO_Box_Freepost_Number_Or_General_Address</name>
+        <label>PO Box, Freepost Number Or General Address</label>
+        <locationX>182</locationX>
+        <locationY>1103</locationY>
+        <defaultConnector>
+            <targetReference>Set_Dutch_General_Address_As_Billing_Address_Values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>General address</defaultConnectorLabel>
+        <rules>
+            <name>Dutch_PO_Box_or_Freepost_Number</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__r.PO_Box_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__r.Freepost_number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Dutch_PO_Box_Or_Freepost_Billing_Address_Values</targetReference>
+            </connector>
+            <label>Dutch PO Box or Freepost Number</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Lookup to address for billing got new value</description>
+        <name>Primary_Billing_Address_Changed</name>
+        <label>Primary Billing Address Changed</label>
+        <locationX>776</locationX>
+        <locationY>887</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Billing_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__c</leftValueReference>
+                <operator>WasSet</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Dutch_Or_Foreign_Billing_Address</targetReference>
+            </connector>
+            <label>Billing Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Lookup to address for shipping got new value</description>
+        <name>Primary_Shipping_Address_Changed</name>
+        <label>Primary Shipping Address Changed</label>
+        <locationX>776</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Primary_Billing_Address_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Shipping_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Shipping_Address__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Shipping_Address__c</leftValueReference>
+                <operator>WasSet</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Shipping_Address__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Dutch_Or_Foreign_Shipping_Address</targetReference>
+            </connector>
+            <label>Shipping Changed</label>
+        </rules>
+    </decisions>
+    <description>Field updates</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Creates the full Billing Address for the Netherlands</description>
+        <name>forT_DutchBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c}))
+          ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Billing_Address__r.House_Letter__c}&amp;{!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c})),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c}))
+           ), {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp;{!varR_Account.Primary_Billing_Address__r.House_Letter__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Creates the full PO Box or Freepost Billing Address for the Netherlands</description>
+        <name>forT_DutchPOBoxFreepostBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISNULL({!varR_Account.Primary_Billing_Address__r.PO_Box_Number__c})), &quot;Postbus &quot;&amp;{!varR_Account.Primary_Billing_Address__r.PO_Box_Number__c},
+&quot;Antwoordnummer &quot;&amp;{!varR_Account.Primary_Billing_Address__r.Freepost_number__c})</expression>
+    </formulas>
+    <formulas>
+        <description>Used for Dutch addresses. It comprises of the full address for the Shipping Address.</description>
+        <name>forT_DutchShippingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c}))
+          ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Letter__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c})),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c}))
+           ), {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp;{!varR_Account.Primary_Shipping_Address__r.House_Letter__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Used for foreign addresses. It comprises of the full address for the Billing Address.</description>
+        <name>forT_ForeignBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c}))
+          ), {!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c})),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c})
+           ), {!varR_Account.Primary_Billing_Address__r.Address_Line_1__c},
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__c})),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c}))
+           ), {!varR_Account.Primary_Billing_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c})
+           ), &quot;&quot;, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Used for foreign addresses. It comprises of the full address for the Shipping Address.</description>
+        <name>forT_ForeignShippingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+   					NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c}))
+          ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c},
+IF(
+   AND(
+   					NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c})),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c})
+           ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c},
+IF(
+   AND(
+   					NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__c})),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c}))
+           ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c},
+IF(
+   AND(      					
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c})
+           ), &quot;&quot;, &quot;&quot;))))</expression>
+    </formulas>
+    <interviewLabel>RT - Account - Before Create/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Account - Before Create/Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>650</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Triggered_Account_Record_to_Variable</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>varR_Account</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

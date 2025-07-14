@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>New Case that has been inserted can be updated using this Screen Flow.</description>
+    <flowDefinition>Screen_Flow_Create_Update_New_Case</flowDefinition>
+    <label>New Case Assessment</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

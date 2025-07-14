@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_group__c</fullName>
+    <description>To register the target group</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To register the target group</inlineHelpText>
+    <label>Target group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EEN</fullName>
+                <default>false</default>
+                <label>Person</label>
+            </value>
+            <value>
+                <fullName>GEZ</fullName>
+                <default>false</default>
+                <label>Family</label>
+            </value>
+            <value>
+                <fullName>HZO</fullName>
+                <default>false</default>
+                <label>Childless household</label>
+            </value>
+            <value>
+                <fullName>JON</fullName>
+                <default>false</default>
+                <label>Youth</label>
+            </value>
+            <value>
+                <fullName>SEN</fullName>
+                <default>false</default>
+                <label>Senior</label>
+            </value>
+            <value>
+                <fullName>STA</fullName>
+                <default>false</default>
+                <label>Starter</label>
+            </value>
+            <value>
+                <fullName>STU</fullName>
+                <default>false</default>
+                <label>Students</label>
+            </value>
+            <value>
+                <fullName>ZOR</fullName>
+                <default>false</default>
+                <label>Care</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

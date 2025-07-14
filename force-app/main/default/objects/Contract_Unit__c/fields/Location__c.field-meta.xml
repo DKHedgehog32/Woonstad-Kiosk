@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <description>To register location details</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To register location details</inlineHelpText>
+    <label>Location</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BBK</fullName>
+                <default>false</default>
+                <label>Outside urban area</label>
+            </value>
+            <value>
+                <fullName>BES</fullName>
+                <default>false</default>
+                <label>Sheltered location</label>
+            </value>
+            <value>
+                <fullName>BOS</fullName>
+                <default>false</default>
+                <label>In wooded area</label>
+            </value>
+            <value>
+                <fullName>BRA</fullName>
+                <default>false</default>
+                <label>At the edge of forest</label>
+            </value>
+            <value>
+                <fullName>CEN</fullName>
+                <default>false</default>
+                <label>In town center</label>
+            </value>
+            <value>
+                <fullName>DRU</fullName>
+                <default>false</default>
+                <label>On busy road</label>
+            </value>
+            <value>
+                <fullName>LAN</fullName>
+                <default>false</default>
+                <label>Rural location</label>
+            </value>
+            <value>
+                <fullName>OPE</fullName>
+                <default>false</default>
+                <label>Open location</label>
+            </value>
+            <value>
+                <fullName>PAR</fullName>
+                <default>false</default>
+                <label>Near park</label>
+            </value>
+            <value>
+                <fullName>RUS</fullName>
+                <default>false</default>
+                <label>On quiet road</label>
+            </value>
+            <value>
+                <fullName>VAA</fullName>
+                <default>false</default>
+                <label>Near waterways</label>
+            </value>
+            <value>
+                <fullName>VRI</fullName>
+                <default>false</default>
+                <label>Open view</label>
+            </value>
+            <value>
+                <fullName>WAT</fullName>
+                <default>false</default>
+                <label>Near water</label>
+            </value>
+            <value>
+                <fullName>WOO</fullName>
+                <default>false</default>
+                <label>In residential area</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

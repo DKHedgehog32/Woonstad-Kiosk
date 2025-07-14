@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Email-to-Case Autoreply</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>Woonstad</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>test-info@woonstadrotterdam.nl</replyToEmail>
+            <senderEmail>noreply@woonstadrotterdam.nl</senderEmail>
+            <senderName>Woonstad Rotterdam</senderName>
+            <template>AutomatedEmailTemplates/Woonstad_Email_to_Case_Autoreply_Standaard_1740066147766</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.OwnerId</field>
+                <operation>equals</operation>
+                <value>Stadswonen</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>noreply@stadswonenrotterdam.nl</replyToEmail>
+            <senderEmail>noreply@stadswonenrotterdam.nl</senderEmail>
+            <senderName>Stadswonen Rotterdam</senderName>
+            <template>AutomatedEmailTemplates/Woonstad_Email_to_Case_Autoreply_Standaard_1740069707430</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

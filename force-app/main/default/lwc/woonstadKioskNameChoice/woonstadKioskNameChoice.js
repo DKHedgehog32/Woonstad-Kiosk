@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
-import LOGO from '@salesforce/resourceUrl/WSRLogo';
+import LOGO from '@salesforce/resourceUrl/WSRlogo';
 
 export default class WoonstadKioskNameChoice extends LightningElement {
     logoUrl = LOGO;
